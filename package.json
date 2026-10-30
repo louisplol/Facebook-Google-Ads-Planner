@@ -1,0 +1,55 @@
+{
+  "name": "paid-marketing-workbook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Free, open source Facebook and Google ads planner for small businesses. Plan budgets, write ads and landing pages, forecast leads and measure results.",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "predev": "node scripts/setup.mjs && npm run db:migrate:local",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint:copy": "node scripts/lint-copy.mjs",
+    "e2e": "playwright test",
+    "eval:assist": "node evals/assist/run.ts",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:seed:local": "wrangler d1 execute DB --local --file=scripts/seed.sql",
+    "deploy": "vite build && wrangler deploy",
+    "ci": "npm run typecheck && npm run lint:copy && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@pmw/engine": "*",
+    "hono": "^4.13.14",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.66.0",
+    "@cloudflare/workers-types": "^5.20261029.1",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@vitest/coverage-v8": "^5.0.5",
+    "typescript": "5.9.3",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.155.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

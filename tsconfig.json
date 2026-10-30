@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "noImplicitOverride": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": ["@cloudflare/workers-types", "vite/client", "node"],
+    "paths": {
+      "@pmw/engine": ["./packages/engine/src/index.ts"]
+    }
+  },
+  "include": ["packages/engine/src", "worker/src", "apps/web/src", "test", "e2e", "evals", "vite.config.ts", "vitest.config.ts", "playwright.config.ts"]
+}

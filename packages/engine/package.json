@@ -1,0 +1,11 @@
+{
+  "name": "@pmw/engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure method engine: section content, calculators, benchmarks, industry packs and validators. No I/O.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "license": "MIT"
+}

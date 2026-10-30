@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.wrangler/
+.dev.vars
+wrangler.toml
+wrangler.jsonc
+test-results/
+playwright-report/
+*.log
+.DS_Store
+# Private planning material, never published
+_Context/
+evals/assist/reports/

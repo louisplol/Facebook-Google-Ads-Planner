@@ -1,0 +1,66 @@
+# Copy to wrangler.toml (npm run setup does this for you) and fill in your own ids.
+# wrangler.toml is git ignored so account ids never land in the public repo.
+
+name = "paid-marketing-workbook"
+main = "worker/src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+# Pages go through the Worker so it can write each page's title, description and search settings.
+# Hashed bundles and images are served straight from the edge.
+run_worker_first = ["/*", "!/assets/*", "!/favicon.svg", "!/og.png", "!/apple-touch-icon.png"]
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pmw"
+# Local dev works with this placeholder. Replace with `wrangler d1 create pmw` output before deploying.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "pmw-uploads"
+# Add a 7 day lifecycle rule on this bucket in the dashboard (uploads are short lived).
+
+[[workflows]]
+name = "pmw-research"
+binding = "RESEARCH_WORKFLOW"
+class_name = "ResearchWorkflow"
+
+[triggers]
+# Daily spend alert check
+crons = ["0 22 * * *"]
+
+[vars]
+ENVIRONMENT = "production"
+BRAND_NAME = "Paid Marketing Workbook"
+APP_URL = ""
+VIDEO_URL = ""
+DEFAULT_CURRENCY = "AUD"
+DEFAULT_COUNTRY = "AU"
+ASSIST_ENABLED = "true"
+RESEARCH_ENABLED = "true"
+AI_MODEL_RESEARCH = "claude-opus-5-5"
+AI_MODEL_WRITE = "claude-sonnet-5-5"
+AI_MODEL_CHECK = "claude-haiku-5-5"
+AI_MONTHLY_BUDGET_USD = "50"
+AHREFS_DAILY_UNIT_CAP = "5000"
+ASSIST_DAILY_ANON = "10"
+ASSIST_DAILY_SAVED = "60"
+RESEARCH_DAILY_SAVED = "5"
+CF_ACCOUNT_ID = ""
+TURNSTILE_SITE_KEY = ""
+ACCESS_TEAM_DOMAIN = ""
+ACCESS_AUD = ""
+EMAIL_FROM = ""
+CONSENT_VERSION = "2"
+
+# Secrets (set with `wrangler secret put NAME`, never in this file):
+# ANTHROPIC_API_KEY, AHREFS_API_KEY, CF_BROWSER_TOKEN, RESEND_API_KEY,
+# TURNSTILE_SECRET_KEY, SESSION_SECRET, ADMIN_EMAILS, ALERT_EMAIL

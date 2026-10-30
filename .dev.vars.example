@@ -1,0 +1,45 @@
+# Copy to .dev.vars (npm run setup does this) for local development.
+# .dev.vars is git ignored. Leave keys blank to run with assists and research in "not connected" mode.
+
+ENVIRONMENT=development
+BRAND_NAME=Paid Marketing Workbook
+APP_URL=http://localhost:5173
+
+# Writing help and market research (server side only, never sent to the browser)
+ANTHROPIC_API_KEY=
+AHREFS_API_KEY=
+CF_ACCOUNT_ID=
+CF_BROWSER_TOKEN=
+
+# Models per tier
+AI_MODEL_RESEARCH=claude-opus-5-5
+AI_MODEL_WRITE=claude-sonnet-5-5
+AI_MODEL_CHECK=claude-haiku-5-5
+
+ASSIST_ENABLED=true
+RESEARCH_ENABLED=true
+AI_MONTHLY_BUDGET_USD=50
+AHREFS_DAILY_UNIT_CAP=5000
+ASSIST_DAILY_ANON=10
+ASSIST_DAILY_SAVED=60
+RESEARCH_DAILY_SAVED=5
+
+# Email (magic links). With no key, links are printed to the dev console instead.
+RESEND_API_KEY=
+EMAIL_FROM=
+
+# Cloudflare Turnstile test keys (always pass). Replace in production.
+TURNSTILE_SITE_KEY=1x00000000000000000000AA
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+
+# Session cookie signing. Any long random string.
+SESSION_SECRET=change-me-to-a-long-random-string
+
+# Admin. In production, Cloudflare Access guards /admin and /api/admin and the Worker
+# also checks the signed-in email against ADMIN_EMAILS (comma separated).
+# Locally, Access is not present, so the admin area asks for ADMIN_DEV_TOKEN instead.
+ADMIN_EMAILS=
+ADMIN_DEV_TOKEN=
+ACCESS_TEAM_DOMAIN=
+ACCESS_AUD=
+ALERT_EMAIL=

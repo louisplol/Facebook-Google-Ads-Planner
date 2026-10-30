@@ -1,0 +1,27 @@
+// Static glossary for tap-to-explain tooltips. Written once, not generated.
+
+export const GLOSSARY: Record<string, { term: string; plain: string }> = {
+  cpm: { term: "CPM", plain: "What you pay for 1,000 people to see your ad." },
+  ctr: { term: "CTR", plain: "Click-through rate: out of everyone who saw the ad, the share who clicked it. Link CTR counts clicks on your link only." },
+  cpc: { term: "Cost per click", plain: "What you pay, on average, each time someone clicks your ad." },
+  roas: { term: "ROAS", plain: "Return on ad spend: revenue divided by what you spent on ads. 3x means $3 back for every $1 spent. It ignores your delivery costs, so profit matters more." },
+  vsl: { term: "VSL", plain: "Video sales letter: a short video that explains your offer, usually on the thank you page after someone books." },
+  pixel: { term: "Pixel", plain: "A small piece of code from Meta on your pages. It tells Meta when someone visits, fills in a form or books, so it can find more people like them." },
+  dataset: { term: "Data Set", plain: "Meta's newer name for the pixel and the events it collects." },
+  advantage: { term: "Advantage+", plain: "Meta's setting that lets its system choose who sees your ads, based on your ads and page rather than your audience settings." },
+  lookalike: { term: "Lookalike", plain: "An audience Meta builds of people who look like a list you give it, such as your customers." },
+  optin: { term: "Opt-in rate", plain: "Out of everyone who clicked, the share who filled in your form." },
+  booking: { term: "Booking rate", plain: "Out of everyone who filled in your form, the share who booked a call." },
+  show: { term: "Show rate", plain: "Out of everyone who booked, the share who turned up to the call." },
+  close: { term: "Close rate", plain: "Out of everyone you spoke to, the share who bought." },
+  cpa: { term: "Cost per acquisition", plain: "What you spent on ads for each new customer." },
+  frequency: { term: "Frequency", plain: "On average, how many times each person has seen your ad." },
+  meta_ad_system: { term: "Meta's ad system", plain: "The part of Facebook and Instagram that decides who sees each ad and how much you pay." },
+  cold: { term: "Cold audience", plain: "People who haven't heard of you yet." },
+  warm: { term: "Warm audience", plain: "People who have already visited your site, watched your videos or followed you." },
+  funnel_2step: { term: "2-step funnel", plain: "Ad, then form, then booking page, then a call. Suits services that need a proper conversation." },
+  funnel_1step: { term: "1-step funnel", plain: "Ad straight to a form, then a quick call back. Suits trades and quick quotes." },
+  rule_of_one: { term: "Rule of One", plain: "One idea, one story, one promise, one emotion, one call to action per ad." },
+  hook: { term: "Hook", plain: "The first line or first seconds of an ad. It stops the right person scrolling." },
+  negative_keyword: { term: "Words to block", plain: "Search words you don't want your ad to show for, like \"free\" or \"jobs\"." },
+};
